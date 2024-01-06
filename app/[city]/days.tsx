@@ -1,9 +1,8 @@
-import { ErrorMessage } from "@/components/ErrorMessage";
-import { ListItem } from "@/components/ListItem";
-import { Heading } from "@/components/text/Heading";
+import { ErrorMessage, ListItem, Heading } from "@/components";
+
 import Colors from "@/constants/Colors";
-import { useFetchDays } from "@/utils/useFetchDays";
-import { useGlobalSearchParams, useLocalSearchParams } from "expo-router";
+import { useFetchDays } from "@/utils";
+import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View, Text, FlatList } from "react-native";
 
 export default function TabTwoScreen() {
@@ -22,9 +21,7 @@ export default function TabTwoScreen() {
             data={data}
             renderItem={(day) => <ListItem data={day.item} />}
             ItemSeparatorComponent={() => (
-              <View
-                style={{ backgroundColor: Colors.primary, height: 1 }}
-              ></View>
+              <View style={{ backgroundColor: Colors.primary, height: 1 }} />
             )}
           />
         )}

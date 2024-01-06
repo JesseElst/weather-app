@@ -1,6 +1,6 @@
 import Sizes from "@/constants/Sizes";
 import { WEATHER_ICONS } from "@/data";
-import { DaysData } from "@/types";
+import type { DaysData } from "@/types";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { View, StyleSheet, Text } from "react-native";
 

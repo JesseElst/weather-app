@@ -1,22 +1,17 @@
-import { ChartButton } from "@/components/ChartButton";
-import { ErrorMessage } from "@/components/ErrorMessage";
-import { ScrollItem } from "@/components/ScrollItem";
-import { RainChart } from "@/components/charts/RainChart";
-import { TempChart } from "@/components/charts/TempChart";
-import { WindChart } from "@/components/charts/WindChart";
-import { Heading } from "@/components/text/Heading";
-import Colors from "@/constants/Colors";
-import { Charts } from "@/types";
-import { useFetchHours } from "@/utils/useFetchHours";
-import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
-import { useState } from "react";
 import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+  ChartButton,
+  ErrorMessage,
+  ScrollItem,
+  RainChart,
+  TempChart,
+  WindChart,
+  Heading,
+} from "@/components";
+import type { Charts } from "@/types";
+import { useFetchHours } from "@/utils";
+import { useLocalSearchParams } from "expo-router";
+import { useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function TabOneScreen() {
   const { city } = useLocalSearchParams<{ city: string }>();

@@ -1,6 +1,5 @@
 import Colors from "@/constants/Colors";
 import { Stack, useGlobalSearchParams } from "expo-router";
-import { StatusBar } from "react-native";
 
 export const unstable_settings = {
   initialRouteName: "index",

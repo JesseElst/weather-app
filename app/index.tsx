@@ -1,5 +1,4 @@
-import { CityItem } from "@/components/CityItem";
-import { Heading } from "@/components/text/Heading";
+import { CityItem } from "@/components";
 import Colors from "@/constants/Colors";
 import Sizes from "@/constants/Sizes";
 import { CITY_LIST } from "@/data";

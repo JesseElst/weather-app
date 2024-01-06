@@ -1,7 +1,7 @@
 import Colors from "@/constants/Colors";
 import Sizes from "@/constants/Sizes";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Tabs, useGlobalSearchParams, useLocalSearchParams } from "expo-router";
+import { Tabs, useLocalSearchParams } from "expo-router";
 import { StatusBar } from "react-native";
 
 export default function TabLayout() {
