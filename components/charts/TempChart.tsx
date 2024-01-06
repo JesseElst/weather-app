@@ -1,5 +1,4 @@
 import type { HourlyData } from "@/types";
-import { View } from "react-native";
 import {
   VictoryAxis,
   VictoryChart,

@@ -3,6 +3,7 @@ import { ErrorMessage } from "@/components/ErrorMessage";
 import { ScrollItem } from "@/components/ScrollItem";
 import { RainChart } from "@/components/charts/RainChart";
 import { TempChart } from "@/components/charts/TempChart";
+import { WindChart } from "@/components/charts/WindChart";
 import { Heading } from "@/components/text/Heading";
 import Colors from "@/constants/Colors";
 import { Charts } from "@/types";
@@ -50,6 +51,7 @@ export default function TabOneScreen() {
             <View style={styles.chartContainer}>
               {chartShown === "temp" && <TempChart data={data!} />}
               {chartShown === "rain" && <RainChart data={data!} />}
+              {chartShown === "wind" && <WindChart data={data!} />}
             </View>
 
             <ScrollView
