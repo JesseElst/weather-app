@@ -1,4 +1,4 @@
-import type { Hourly } from "@/types";
+import type { HourlyData } from "@/types";
 import { View } from "react-native";
 import {
   VictoryAxis,
@@ -8,7 +8,7 @@ import {
 } from "victory-native";
 
 type TempChartProps = {
-  data: Hourly[];
+  data: HourlyData[];
 };
 
 export const TempChart = (props: TempChartProps) => {

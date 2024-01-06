@@ -7,6 +7,6 @@ export const Heading = (props: Text["props"]) => {
 const styles = StyleSheet.create({
   heading: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 20,
   },
 });

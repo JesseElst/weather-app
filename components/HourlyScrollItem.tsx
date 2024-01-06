@@ -1,9 +1,9 @@
 import Colors from "@/constants/Colors";
-import type { Hourly } from "@/types";
+import type { HourlyData } from "@/types";
 import { StyleSheet, Text, View } from "react-native";
 
 type HourlyScrollItem = {
-  data: Hourly;
+  data: HourlyData;
 };
 
 export const HourlyScrollItem = (props: HourlyScrollItem) => {

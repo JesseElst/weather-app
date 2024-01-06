@@ -4,7 +4,7 @@ import { RainChart } from "@/components/charts/RainChart";
 import { TempChart } from "@/components/charts/TempChart";
 import { Heading } from "@/components/text/Heading";
 import { Charts } from "@/types";
-import { useFetch } from "@/utils/useFetch";
+import { useFetchHours } from "@/utils/useFetchHours";
 import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
 import { useState } from "react";
 import {
@@ -18,7 +18,7 @@ import {
 export default function TabOneScreen() {
   const { city } = useLocalSearchParams<{ city: string }>();
   const [chartShown, setChartShown] = useState<Charts>("temp");
-  const { data, errorMessage, isLoading } = useFetch(city);
+  const { data, errorMessage, isLoading } = useFetchHours(city);
   return (
     <>
       {errorMessage && <ErrorMessage content={errorMessage} />}

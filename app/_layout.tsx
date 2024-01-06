@@ -1,21 +1,6 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
-import { useFonts } from "expo-font";
-import {
-  SplashScreen,
-  Stack,
-  useGlobalSearchParams,
-  useLocalSearchParams,
-} from "expo-router";
-import { useEffect } from "react";
-import { useColorScheme } from "react-native";
+import { Stack, useGlobalSearchParams } from "expo-router";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "index",
 };
 

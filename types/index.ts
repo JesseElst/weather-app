@@ -4,11 +4,19 @@ export type Cities = {
   lat: string;
 };
 
-export type Hourly = {
+export type HourlyData = {
   time: number;
   temp: number;
   rain: number;
   wind: number;
+  condition: string;
+};
+
+export type DaysData = {
+  day: string;
+  minTemp: number;
+  maxTemp: number;
+  rain: number;
   condition: string;
 };
 

@@ -1,16 +1,16 @@
-import type { Hourly } from "@/types";
+import type { HourlyData } from "@/types";
 import { useEffect, useState } from "react";
 
 type FetchResponse = {
-  data: Hourly[] | null;
+  data: HourlyData[] | null;
   errorMessage: string;
   isLoading: boolean;
 };
 
-export const useFetch = (location: string): FetchResponse => {
+export const useFetchHours = (location: string): FetchResponse => {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const [data, setData] = useState<Hourly[] | null>(null);
+  const [data, setData] = useState<HourlyData[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +21,7 @@ export const useFetch = (location: string): FetchResponse => {
         );
         const formatted = await fetchedData.json();
         const hourlyData = formatted.forecast.forecastday[0].hour;
-        const ResultData = hourlyData.map((item: any) => {
+        const resultData = hourlyData.map((item: any) => {
           const date = new Date(item.time);
           const time = date.getHours();
           return {
@@ -32,8 +32,9 @@ export const useFetch = (location: string): FetchResponse => {
             condition: item.condition.text,
           };
         });
-        setData(ResultData);
+        setData(resultData);
         setIsLoading(false);
+        setErrorMessage("");
       } catch (error) {
         setErrorMessage(`Error message: ${error}`);
       }
