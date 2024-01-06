@@ -1,8 +1,10 @@
+import { ChartButton } from "@/components/ChartButton";
 import { ErrorMessage } from "@/components/ErrorMessage";
-import { HourlyScrollItem } from "@/components/HourlyScrollItem";
+import { ScrollItem } from "@/components/ScrollItem";
 import { RainChart } from "@/components/charts/RainChart";
 import { TempChart } from "@/components/charts/TempChart";
 import { Heading } from "@/components/text/Heading";
+import Colors from "@/constants/Colors";
 import { Charts } from "@/types";
 import { useFetchHours } from "@/utils/useFetchHours";
 import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
@@ -22,41 +24,66 @@ export default function TabOneScreen() {
   return (
     <>
       {errorMessage && <ErrorMessage content={errorMessage} />}
-      <Heading>Hourly Data</Heading>
-      {isLoading ? (
-        <Text>Loading...</Text>
-      ) : (
-        <>
-          <View style={styles.buttonCollection}>
-            <TouchableOpacity onPress={() => setChartShown("temp")}>
-              <Text>Temperature</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setChartShown("rain")}>
-              <Text>Rain</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setChartShown("wind")}>
-              <Text>Wind</Text>
-            </TouchableOpacity>
-          </View>
-          {chartShown === "temp" && <TempChart data={data!} />}
-          {chartShown === "rain" && <RainChart data={data!} />}
+      <View style={styles.container}>
+        <Heading>Hourly Data</Heading>
+        {isLoading ? (
+          <Text>Loading...</Text>
+        ) : (
+          <>
+            <View style={styles.buttonCollection}>
+              <ChartButton
+                isSelected={chartShown === "temp"}
+                title="Temperature"
+                handleClick={() => setChartShown("temp")}
+              />
+              <ChartButton
+                title="Rain"
+                isSelected={chartShown === "rain"}
+                handleClick={() => setChartShown("rain")}
+              />
+              <ChartButton
+                title="Wind"
+                isSelected={chartShown === "wind"}
+                handleClick={() => setChartShown("wind")}
+              />
+            </View>
+            <View style={styles.chartContainer}>
+              {chartShown === "temp" && <TempChart data={data!} />}
+              {chartShown === "rain" && <RainChart data={data!} />}
+            </View>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {data?.map((item, key) => (
-              <HourlyScrollItem data={item} key={key} />
-            ))}
-          </ScrollView>
-        </>
-      )}
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.scrollContainer}
+            >
+              {data?.map((item, key) => (
+                <ScrollItem data={item} key={key} />
+              ))}
+            </ScrollView>
+          </>
+        )}
+      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "blue",
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    flex: 1,
+  },
+  chartContainer: {
+    flex: 1,
   },
   buttonCollection: {
+    marginVertical: 10,
     flexDirection: "row",
+    gap: 10,
+  },
+  scrollContainer: {
+    marginBottom: 50,
+    alignItems: "flex-end",
   },
 });

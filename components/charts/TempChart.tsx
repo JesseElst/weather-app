@@ -14,22 +14,16 @@ type TempChartProps = {
 export const TempChart = (props: TempChartProps) => {
   const { data } = props;
   return (
-    <View>
-      <VictoryChart
-        width={400}
-        theme={VictoryTheme.material}
-        domainPadding={20}
-      >
-        <VictoryLine
-          style={{
-            data: { stroke: "#c43a31" },
-            parent: { border: "1px solid #ccc" },
-          }}
-          data={data.map((item) => ({ x: item.time, y: item.temp }))}
-        />
-        <VictoryAxis tickFormat={(item) => `${item}:00`} />
-        <VictoryAxis tickFormat={(item) => `${item}°`} dependentAxis />
-      </VictoryChart>
-    </View>
+    <VictoryChart width={400} theme={VictoryTheme.material} domainPadding={20}>
+      <VictoryLine
+        style={{
+          data: { stroke: "#c43a31" },
+          parent: { border: "1px solid #ccc" },
+        }}
+        data={data.map((item) => ({ x: item.time, y: item.temp }))}
+      />
+      <VictoryAxis tickFormat={(item) => `${item}:00`} />
+      <VictoryAxis tickFormat={(item) => `${item}°`} dependentAxis />
+    </VictoryChart>
   );
 };

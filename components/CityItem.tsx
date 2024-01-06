@@ -1,7 +1,6 @@
 import Colors from "@/constants/Colors";
-import { Link, useRouter } from "expo-router";
+import { Link } from "expo-router";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Heading } from "./text/Heading";
 import { MaterialIcons } from "@expo/vector-icons";
 import Sizes from "@/constants/Sizes";
 
@@ -11,12 +10,11 @@ type CityItemProps = {
 
 export const CityItem = (props: CityItemProps) => {
   const { city } = props;
-  const router = useRouter();
   return (
     <Link href={{ pathname: "/[city]/", params: { city: city } }} asChild>
       <TouchableOpacity>
         <View style={styles.container}>
-          <Heading style={styles.text}>{city}</Heading>
+          <Text style={styles.text}>{city}</Text>
           <MaterialIcons
             name="keyboard-arrow-right"
             color={Colors.white}
@@ -38,5 +36,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.white,
+    fontSize: 20,
   },
 });
