@@ -17,8 +17,8 @@ export const unstable_settings = {
 export default function RootLayoutNav() {
   return (
     <Stack>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="[city]" options={{ headerShown: false }} />
     </Stack>
   );
 }

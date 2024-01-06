@@ -1,9 +1,12 @@
-import { StyleSheet, View, Text } from "react-native";
+import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function TabTwoScreen() {
+export default function TabOneScreen() {
+  const { city } = useLocalSearchParams<{ city: string }>();
+  console.log("one", city);
   return (
     <View>
-      <Text>Test2</Text>
+      <Text>Test</Text>
     </View>
   );
 }
