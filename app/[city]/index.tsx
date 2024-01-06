@@ -1,13 +1,23 @@
+import { CITY_LIST } from "@/data";
+import { useFetch } from "@/utils/useFetch";
 import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function TabOneScreen() {
   const { city } = useLocalSearchParams<{ city: string }>();
-  console.log("one", city);
+  const { data, errorMessage, isLoading } = useFetch("Berlin");
   return (
-    <View>
-      <Text>Test</Text>
-    </View>
+    <>
+      {isLoading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {data?.map((item) => (
+            <Text>{item.time}</Text>
+          ))}
+        </ScrollView>
+      )}
+    </>
   );
 }
 

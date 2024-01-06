@@ -5,7 +5,7 @@ export default function TabLayout() {
   console.log(city);
   return (
     <Tabs>
-      <Tabs.Screen name="index" initialParams={{ city: city }} />
+      <Tabs.Screen name="index" />
       <Tabs.Screen
         name="two"
         options={{

@@ -1,5 +1,6 @@
 import { CityItem } from "@/components/CityItem";
 import Colors from "@/constants/Colors";
+import { CITY_LIST } from "@/data";
 import {
   FlatList,
   Platform,
@@ -10,15 +11,13 @@ import {
   View,
 } from "react-native";
 
-const CITIES = ["Amsterdam", "New York", "Berlin"] as const;
-
 const Page = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>INDEX</Text>
       <FlatList
-        data={CITIES}
-        renderItem={(item) => <CityItem city={item.item} />}
+        data={CITY_LIST}
+        renderItem={(city) => <CityItem city={city.item.name} />}
       />
     </SafeAreaView>
   );
