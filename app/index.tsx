@@ -15,17 +15,19 @@ import {
 
 const Page = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <>
       <StatusBar barStyle={"light-content"} />
-      <Text style={styles.heading}>Weather App</Text>
-      <FlatList
-        data={CITY_LIST}
-        renderItem={(city) => <CityItem city={city.item.name} />}
-        ItemSeparatorComponent={() => (
-          <View style={{ backgroundColor: Colors.white, height: 1 }}></View>
-        )}
-      />
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.heading}>Weather App</Text>
+        <FlatList
+          data={CITY_LIST}
+          renderItem={(city) => <CityItem city={city.item.name} />}
+          ItemSeparatorComponent={() => (
+            <View style={{ backgroundColor: Colors.white, height: 1 }}></View>
+          )}
+        />
+      </SafeAreaView>
+    </>
   );
 };
 

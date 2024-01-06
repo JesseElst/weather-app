@@ -1,5 +1,5 @@
 export default {
   h1: 40,
-  fontSize: 16,
+  heading: 20,
   icon: 30,
 };

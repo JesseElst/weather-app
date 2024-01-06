@@ -14,6 +14,7 @@ export type HourlyData = {
 
 export type DaysData = {
   day: string;
+  code: number;
   minTemp: number;
   maxTemp: number;
   rain: number;

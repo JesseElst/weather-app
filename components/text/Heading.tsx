@@ -1,3 +1,4 @@
+import Sizes from "@/constants/Sizes";
 import { StyleSheet, Text } from "react-native";
 
 export const Heading = (props: Text["props"]) => {
@@ -7,6 +8,6 @@ export const Heading = (props: Text["props"]) => {
 const styles = StyleSheet.create({
   heading: {
     fontWeight: "bold",
-    fontSize: 20,
+    fontSize: Sizes.heading,
   },
 });

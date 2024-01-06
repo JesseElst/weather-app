@@ -29,6 +29,7 @@ export const useFetchDays = (location: string): FetchResponse => {
 
           return {
             day: day,
+            code: item.day.condition.code,
             minTemp: item.day.mintemp_c,
             maxTemp: item.day.maxtemp_c,
             rain: item.day.daily_chance_of_rain,
