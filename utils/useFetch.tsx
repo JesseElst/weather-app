@@ -1,4 +1,3 @@
-import { CITY_LIST } from "@/data";
 import type { Hourly } from "@/types";
 import { useEffect, useState } from "react";
 
@@ -28,6 +27,7 @@ export const useFetch = (location: string): FetchResponse => {
           return {
             time: time,
             temp: item.temp_c,
+            wind: item.wind_kph,
             rain: item.precip_mm,
             condition: item.condition.text,
           };

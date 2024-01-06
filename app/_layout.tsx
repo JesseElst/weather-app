@@ -5,7 +5,12 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
+import {
+  SplashScreen,
+  Stack,
+  useGlobalSearchParams,
+  useLocalSearchParams,
+} from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 
@@ -15,10 +20,12 @@ export const unstable_settings = {
 };
 
 export default function RootLayoutNav() {
+  const { city } = useGlobalSearchParams<{ city: string }>();
+
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="[city]" options={{ headerShown: false }} />
+      <Stack.Screen name="[city]" options={{ title: city || "Undefined" }} />
     </Stack>
   );
 }

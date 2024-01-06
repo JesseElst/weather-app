@@ -8,6 +8,7 @@ export type Hourly = {
   time: number;
   temp: number;
   rain: number;
+  wind: number;
   condition: string;
 };
 
