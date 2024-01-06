@@ -1,5 +1,5 @@
+import { ErrorMessage } from "@/components/ErrorMessage";
 import { HourlyScrollItem } from "@/components/HourlyScrollItem";
-import { CITY_LIST } from "@/data";
 import { useFetch } from "@/utils/useFetch";
 import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -9,6 +9,7 @@ export default function TabOneScreen() {
   const { data, errorMessage, isLoading } = useFetch(city);
   return (
     <>
+      {errorMessage && <ErrorMessage content={errorMessage} />}
       {isLoading ? (
         <Text>Loading...</Text>
       ) : (
@@ -22,19 +23,8 @@ export default function TabOneScreen() {
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   title: {
-//     fontSize: 20,
-//     fontWeight: 'bold',
-//   },
-//   separator: {
-//     marginVertical: 30,
-//     height: 1,
-//     width: '80%',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "blue",
+  },
+});
