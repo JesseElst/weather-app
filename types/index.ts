@@ -5,8 +5,10 @@ export type Cities = {
 };
 
 export type Hourly = {
-  time: string;
+  time: number;
   temp: number;
   rain: number;
   condition: string;
 };
+
+export type Charts = "temp" | "rain" | "wind";
