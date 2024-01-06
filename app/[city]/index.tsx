@@ -1,3 +1,4 @@
+import { HourlyScrollItem } from "@/components/HourlyScrollItem";
 import { CITY_LIST } from "@/data";
 import { useFetch } from "@/utils/useFetch";
 import { useLocalSearchParams, useGlobalSearchParams } from "expo-router";
@@ -5,7 +6,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function TabOneScreen() {
   const { city } = useLocalSearchParams<{ city: string }>();
-  const { data, errorMessage, isLoading } = useFetch("Berlin");
+  const { data, errorMessage, isLoading } = useFetch(city);
   return (
     <>
       {isLoading ? (
@@ -13,7 +14,7 @@ export default function TabOneScreen() {
       ) : (
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {data?.map((item) => (
-            <Text>{item.time}</Text>
+            <HourlyScrollItem data={item} />
           ))}
         </ScrollView>
       )}
